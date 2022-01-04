@@ -1,0 +1,13 @@
+{
+    "env": {
+        "landingPage_URL" : "http://automationpractice.multiformis.com/index.php",
+        "loginPage_URL" : "http://automationpractice.multiformis.com/index.php?controller=authentication&back=my-account",
+        "loginPage_emailCorrect" : "lohed50956@ehstock.com",
+        "loginPage_passwordCorrect" : "test01",
+        "loginPage_passwordWrong" : "qwerty",
+        "loginPage_emailWrongFormat" : "test.test",
+        "loginPage_emailWrong" : "test@test.com",
+        "loginPage_errorEmailRequired" : "An email address required.",
+        "loginPage_errorAuthFailed" : "Authentication failed."
+    }
+}
