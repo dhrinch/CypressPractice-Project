@@ -1,4 +1,4 @@
-class SearchResultPage {
+class SearchPage {
 
     enterSearchText(productName) {
         cy.get('#search_query_top')
@@ -14,4 +14,4 @@ class SearchResultPage {
         cy.get('.ajax_add_to_cart_button').click();
     }
 }
-export default SearchResultPage
+export default SearchPage

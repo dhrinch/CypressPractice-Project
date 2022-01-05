@@ -3,8 +3,11 @@
         "landingPage_URL" : "http://automationpractice.multiformis.com/index.php",
         "landingPage_searchTextSimple" : "t-shirt",
         "landingPage_searchTextCompound" : "summer printed dress",
+        "landingPage_searchTextNonExisting" : "sneakers",
 
         "searchPage_addToCartSuccess" : "Product successfully added to your shopping cart",
+        "searchPage_errorNoKeywordsEntered" : "Please enter a search keyword",
+        "searchPage_errorNoResult" : "No results were found for your search",
 
         "loginPage_URL" : "http://automationpractice.multiformis.com/index.php?controller=authentication&back=my-account",
         "loginPage_emailCorrect" : "lohed50956@ehstock.com",

@@ -10,20 +10,17 @@ describe('Test Log In Routines', () => {
         cy.get('a.logout').should('be.visible');
         cy.get('a.logout').click();
     })
-
     it('Log in without credentials', () => {
         login.navigate();
         login.login();
         cy.get('.alert').find('li').should('have.text', Cypress.env('loginPage_errorEmailRequired'));
     })
-
     it('Log in without password', () => {
         login.navigate();
         login.enterLogin(Cypress.env('loginPage_emailCorrect'));
         login.login();
         cy.get('.alert').find('li').should('have.text', Cypress.env('loginPage_errorPasswordRequired'));
     })
-
     it('Log in with wrong email format', () => {
         login.navigate();
         login.enterLogin(Cypress.env('loginPage_emailWrongFormat'));
@@ -38,7 +35,6 @@ describe('Test Log In Routines', () => {
         //});
         //cy.get('.alert').find('li').should('have.text', 'An email address required.');
     })
-
     it('Log in with wrong email', () => {
         login.navigate();
         login.enterLogin(Cypress.env('loginPage_emailWrong'));
@@ -46,7 +42,6 @@ describe('Test Log In Routines', () => {
         login.login();
         cy.get('.alert').find('li').should('have.text', Cypress.env('loginPage_errorAuthFailed'));
     })
-
     it('Log in with wrong password', () => {
         login.navigate();
         login.enterLogin(Cypress.env('loginPage_emailCorrect'));
