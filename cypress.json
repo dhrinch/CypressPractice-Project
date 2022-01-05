@@ -1,6 +1,11 @@
 {
     "env": {
         "landingPage_URL" : "http://automationpractice.multiformis.com/index.php",
+        "landingPage_searchTextSimple" : "t-shirt",
+        "landingPage_searchTextCompound" : "summer printed dress",
+
+        "searchPage_addToCartSuccess" : "Product successfully added to your shopping cart",
+
         "loginPage_URL" : "http://automationpractice.multiformis.com/index.php?controller=authentication&back=my-account",
         "loginPage_emailCorrect" : "lohed50956@ehstock.com",
         "loginPage_passwordCorrect" : "test01",
@@ -8,6 +13,8 @@
         "loginPage_emailWrongFormat" : "test.test",
         "loginPage_emailWrong" : "test@test.com",
         "loginPage_errorEmailRequired" : "An email address required.",
-        "loginPage_errorAuthFailed" : "Authentication failed."
+        "loginPage_errorPasswordRequired" : "Password is required.",
+        "loginPage_errorAuthFailed" : "Authentication failed.",
+        "loginPage_errorEmailWrongFormat" : "Please include an '@' in the email address."
     }
 }

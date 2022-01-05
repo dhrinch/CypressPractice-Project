@@ -1,6 +1,6 @@
 import LoginPage from '../../support/PageObjects/LoginPage';
 
-describe('Verify AutomationPractice Page', () => {
+describe('Test Log In Routines', () => {
     const login = new LoginPage();
     it('Log in with correct credentials', () => {
         login.navigate();
@@ -17,11 +17,22 @@ describe('Verify AutomationPractice Page', () => {
         cy.get('.alert').find('li').should('have.text', Cypress.env('loginPage_errorEmailRequired'));
     })
 
+    it('Log in without password', () => {
+        login.navigate();
+        login.enterLogin(Cypress.env('loginPage_emailCorrect'));
+        login.login();
+        cy.get('.alert').find('li').should('have.text', Cypress.env('loginPage_errorPasswordRequired'));
+    })
+
     it('Log in with wrong email format', () => {
         login.navigate();
         login.enterLogin(Cypress.env('loginPage_emailWrongFormat'));
+        //cy.get('[id=email]').trigger('mouseover')
+        //cy.get('.popover').should('be.visible')
+        
         login.login();
-        cy.get('.is_required').should('be.visible');
+        cy.contains('Please include an \'@\' in the email address.').should('be.visible');
+        //cy.get('.is_required').should('be.visible');
         //cy.on('window:alert', (text) => {
         //    expect(text).to.contains('');
         //});
