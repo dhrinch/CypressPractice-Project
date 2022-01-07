@@ -1,5 +1,6 @@
 import LandingPage from '../../support/PageObjects/LandingPage';
 import SearchPage from '../../support/PageObjects/SearchPage';
+import ProductPage from '../../support/PageObjects/ProductPage';
 
 describe('Test Search Functionality', () => {
     const landing = new LandingPage();
@@ -35,13 +36,25 @@ describe('Test Search Functionality', () => {
         cy.contains(Cypress.env('searchPage_errorNoResult')).should('be.visible');
     })
     
-    it('Add product to cart', () => {
+    it('Add product to cart from search page', () => {
         landing.navigate();
         landing.enterSearchText(Cypress.env('landingPage_searchTextSimple'));
         landing.search();
         
         const results = new SearchPage;
         results.addToCart();
+        cy.contains(Cypress.env('searchPage_addToCartSuccess')).should('be.visible');
+        cy.get('.continue').click();
+    })
+
+    it.only('Add product to cart from product page', () => {
+        landing.navigate();
+        landing.enterSearchText(Cypress.env('landingPage_searchTextSimple'));
+        landing.search();
+        
+        cy.get('.product_img_link').click();
+        const product = new ProductPage;
+        product.addToCart();
         cy.contains(Cypress.env('searchPage_addToCartSuccess')).should('be.visible');
         cy.get('.continue').click();
     })
