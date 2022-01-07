@@ -47,7 +47,7 @@ describe('Test Search Functionality', () => {
         cy.get('.continue').click();
     })
 
-    it.only('Add product to cart from product page', () => {
+    it('Add product to cart from product page', () => {
         landing.navigate();
         landing.enterSearchText(Cypress.env('landingPage_searchTextSimple'));
         landing.search();
