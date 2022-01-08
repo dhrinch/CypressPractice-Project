@@ -8,7 +8,7 @@ describe('Test Search Functionality', () => {
     it('Search for a product by single word', () => {
         landing.navigate();
         landing.enterSearchText(Cypress.env('landingPage_searchTextSimple'));
-        landing.search();
+        landing.clickSearch();
         
         cy.contains(Cypress.env('landingPage_searchTextSimple')).should('be.visible');
     })
@@ -16,14 +16,14 @@ describe('Test Search Functionality', () => {
     it('Search for a product by several words', () => {
         landing.navigate();
         landing.enterSearchText(Cypress.env('landingPage_searchTextCompound'));
-        landing.search();
+        landing.clickSearch();
         
         cy.contains(Cypress.env('landingPage_searchTextCompound')).should('be.visible');
     })
     
     it('Search without entering any text', () => {
         landing.navigate();
-        landing.search();
+        landing.clickSearch();
 
         cy.contains(Cypress.env('searchPage_errorNoKeywordsEntered')).should('be.visible');
     })
@@ -31,7 +31,7 @@ describe('Test Search Functionality', () => {
     it('Search for a non-existing product', () => {
         landing.navigate();
         landing.enterSearchText(Cypress.env('landingPage_searchTextNonExisting'));
-        landing.search();
+        landing.clickSearch();
         
         cy.contains(Cypress.env('searchPage_errorNoResult')).should('be.visible');
     })
@@ -39,7 +39,7 @@ describe('Test Search Functionality', () => {
     it('Add product to cart from search page', () => {
         landing.navigate();
         landing.enterSearchText(Cypress.env('landingPage_searchTextSimple'));
-        landing.search();
+        landing.clickSearch();
         
         const results = new SearchPage;
         results.addToCart();
@@ -50,7 +50,7 @@ describe('Test Search Functionality', () => {
     it('Add product to cart from product page', () => {
         landing.navigate();
         landing.enterSearchText(Cypress.env('landingPage_searchTextSimple'));
-        landing.search();
+        landing.clickSearch();
         
         cy.get('.product_img_link').click();
         const product = new ProductPage;

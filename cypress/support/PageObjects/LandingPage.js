@@ -9,7 +9,7 @@ class LandingPage {
             .type(productName)
     }
     
-    search() {
+    clickSearch() {
         cy.get('[name=submit_search]').click();
     }    
 }

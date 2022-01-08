@@ -6,19 +6,19 @@ describe('Test Log In Routines', () => {
         login.navigate();
         login.enterLogin(Cypress.env('loginPage_emailCorrect'));
         login.enterPassword(Cypress.env('loginPage_passwordCorrect'));
-        login.login();
+        login.clickSubmit();
         cy.get('a.logout').should('be.visible');
         cy.get('a.logout').click();
     })
     it('Log in without credentials', () => {
         login.navigate();
-        login.login();
+        login.clickSubmit();
         cy.get('.alert').find('li').should('have.text', Cypress.env('loginPage_errorEmailRequired'));
     })
     it('Log in without password', () => {
         login.navigate();
         login.enterLogin(Cypress.env('loginPage_emailCorrect'));
-        login.login();
+        login.clickSubmit();
         cy.get('.alert').find('li').should('have.text', Cypress.env('loginPage_errorPasswordRequired'));
     })
     
@@ -28,20 +28,15 @@ describe('Test Log In Routines', () => {
         //cy.get('[id=email]').trigger('mouseover')
         //cy.get('.popover').should('be.visible')
         
-        login.login();
-        cy.contains('Please include an \'@\' in the email address.').should('be.visible');
-        //cy.get('.is_required').should('be.visible');
-        //cy.on('window:alert', (text) => {
-        //    expect(text).to.contains('');
-        //});
-        //cy.get('.alert').find('li').should('have.text', 'An email address required.');
+        login.clickSubmit();
+        cy.contains(Cypress.env('loginPage_errorEmailWrongFormat')).should('be.visible');
     })
     
     it('Log in with wrong email', () => {
         login.navigate();
         login.enterLogin(Cypress.env('loginPage_emailWrong'));
         login.enterPassword(Cypress.env('loginPage_passwordCorrect'));
-        login.login();
+        login.clickSubmit();
         cy.get('.alert').find('li').should('have.text', Cypress.env('loginPage_errorAuthFailed'));
     })
     
@@ -49,7 +44,7 @@ describe('Test Log In Routines', () => {
         login.navigate();
         login.enterLogin(Cypress.env('loginPage_emailCorrect'));
         login.enterPassword(Cypress.env('loginPage_passwordWrong'));
-        login.login();
+        login.clickSubmit();
         cy.get('.alert').find('li').should('have.text', Cypress.env('loginPage_errorAuthFailed'));
     })
 })

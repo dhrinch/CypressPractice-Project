@@ -17,7 +17,7 @@ class LoginPage {
         return this 
     }
 
-    login() {
+    clickSubmit() {
         cy.get('[id=SubmitLogin]').click();
     }    
 }
