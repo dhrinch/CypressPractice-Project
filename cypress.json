@@ -1,4 +1,6 @@
 {
+    "video" : false,
+    
     "env": {
         "landingPage_URL" : "http://automationpractice.multiformis.com/index.php",
         "loginPage_URL" : "http://automationpractice.multiformis.com/index.php?controller=authentication&back=my-account",

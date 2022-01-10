@@ -357,3 +357,4 @@ cypress/integration/2-advanced-examples/utilities.spec.js
 cypress/integration/2-advanced-examples/viewport.spec.js
 cypress/integration/2-advanced-examples/waiting.spec.js
 cypress/integration/2-advanced-examples/window.spec.js
+cypress/snapshots/specs/loginPage_tests.js/wrongEmailFormat.snap.png
