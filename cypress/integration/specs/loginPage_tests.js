@@ -22,14 +22,13 @@ describe('Test Log In Routines', () => {
         cy.get('.alert').find('li').should('have.text', Cypress.env('loginPage_errorPasswordRequired'));
     })
     
-    it('Log in with wrong email format', () => {
+    it('Log in with wrong email format', { scrollBehavior: 'center' }, () => {
         login.navigate();
         login.enterLogin(Cypress.env('loginPage_emailWrongFormat'));
-        //cy.get('[id=email]').trigger('mouseover')
-        //cy.get('.popover').should('be.visible')
         
         login.clickSubmit();
-        cy.contains(Cypress.env('loginPage_errorEmailWrongFormat')).should('be.visible');
+        cy.wait(500);
+        cy.matchImageSnapshot('wrongEmailFormat', { capture : 'viewport'})
     })
     
     it('Log in with wrong email', () => {
