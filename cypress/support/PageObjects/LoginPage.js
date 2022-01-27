@@ -1,6 +1,6 @@
 class LoginPage {
     navigate () {
-        cy.visit(Cypress.env('loginPage_URL'))
+        cy.visit(Cypress.env('URLs').loginPage_URL)
     }
 
     enterLogin(email) {

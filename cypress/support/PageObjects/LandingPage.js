@@ -1,6 +1,6 @@
 class LandingPage {
     navigate () {
-        cy.visit(Cypress.env('landingPage_URL'))
+        cy.visit(Cypress.env('URLs').landingPage_URL)
     }
 
     enterSearchText(productName) {
