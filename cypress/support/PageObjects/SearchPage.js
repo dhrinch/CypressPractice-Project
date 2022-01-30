@@ -1,7 +1,10 @@
+const getAddToCartButton = () => cy.get('.ajax_add_to_cart_button');
+const getSearchField = () => cy.get('#search_query_top');
+
 class SearchPage {
 
     enterSearchText(productName) {
-        cy.get('#search_query_top')
+        getSearchField()
             .clear()
             .type(productName)
     }
@@ -11,7 +14,8 @@ class SearchPage {
     }
 
     addToCart(){
-        cy.get('.ajax_add_to_cart_button').click();
+        getAddToCartButton()
+            .click();
     }
 }
 export default SearchPage
